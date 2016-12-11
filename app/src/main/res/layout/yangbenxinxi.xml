@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="检测区域:"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="检测区域:"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <com.example.qincong.jiance.MyEditText xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/chouyangdanwei"
+        xmlns:customer="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customer:text="抽样单位:"></com.example.qincong.jiance.MyEditText>
+
+    <com.example.qincong.jiance.MyEditText
+        android:id="@+id/yangpinmingcheng"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:customer="http://schemas.android.com/apk/res/com.example.qincong.jiance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customer:text="样品名称:"></com.example.qincong.jiance.MyEditText>
+
+    <com.example.qincong.jiance.MyEditText xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/jiancexiangmu"
+        xmlns:customer="http://schemas.android.com/apk/res/com.example.qincong.jiance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customer:text="检测项目:"></com.example.qincong.jiance.MyEditText>
+
+    <com.example.qincong.jiance.MyEditText
+        android:id="@+id/jiancebeizhu"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:customer="http://schemas.android.com/apk/res/com.example.qincong.jiance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customer:text="检测备注:"></com.example.qincong.jiance.MyEditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="CT值设置"
+        android:textSize="30dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/ctzhishezhi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C有效   T无效    阴性    阳性" />
+
+        <RadioButton
+            android:id="@+id/ctzhishezhi2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C无效   T有效    阳性    阴性" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="检测类设置"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="检测类型: "
+            android:textSize="12dp"/>
+
+        <RadioGroup
+            android:id="@+id/jianceleixing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="胶体金"
+                android:textSize="7dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定性(干/湿)式"
+                android:textSize="7dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定量(干/湿)式"
+                android:textSize="7dp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自主图像判断"
+                android:textSize="7dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交类型: "
+            android:layout_marginTop="8dp"
+            android:textSize="12dp"/>
+
+        <RadioGroup
+            android:id="@+id/tijiaoleixing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自动"
+                android:textSize="7dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手动"
+                android:textSize="7dp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_queding"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="确定"/>
+</LinearLayout>
