@@ -20,6 +20,8 @@
     <activity android:name=".UsrInformation"/>
     <activity android:name=".YangBenXinXiActivity"/>
     <activity android:name=".JianCePanDuActivity"/>
+    <activity android:name=".PhotoWall"/>
+    <activity android:name=".XinXiChaXun"/>
   </application>
 
 </manifest>

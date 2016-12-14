@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        String line=BitmapCompare.similarity(getFilesDir()+"/bz_yang.jpg",getFilesDir()+"/20161211_020635.jpg").toString();
+        Toast.makeText(getApplicationContext(),line,Toast.LENGTH_SHORT).show();
         try{
 
             FileInputStream inputStream=getApplicationContext().openFileInput("img.txt");

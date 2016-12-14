@@ -31,10 +31,24 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.item2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StartActivity.this, XinXiChaXun.class);
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.item3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StartActivity.this, YangBenXinXiActivity.class);
+                Intent intent = new Intent(StartActivity.this,YangBenXinXiActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.item4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StartActivity.this, PhotoWall.class);
                 startActivity(intent);
             }
         });
