@@ -34,9 +34,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by qincong on 2016/12/2.
- */
 public class JianCePanDuActivity extends AppCompatActivity {
     private BlueToothService mBTService = null;
     public static final int MESSAGE_STATE_CHANGE = 1;
@@ -63,8 +60,8 @@ public class JianCePanDuActivity extends AppCompatActivity {
             if (json != null) {
                 infoList = gson.fromJson(json, new TypeToken<List<Info>>() {
                 }.getType());
-                if(infoList==null){
-                    infoList=new ArrayList<Info>();
+                if (infoList == null) {
+                    infoList = new ArrayList<Info>();
                 }
             } else {
             }
@@ -129,7 +126,7 @@ public class JianCePanDuActivity extends AppCompatActivity {
                 Camera.Parameters parameters = camera.getParameters();
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 parameters.setExposureCompensation(3);
-                parameters.set("iso","800");
+                parameters.set("iso", "800");
                 camera.setParameters(parameters);
                 camera.startPreview();
                 camera.takePicture(null, null, new TakePictureCallback());
@@ -141,7 +138,7 @@ public class JianCePanDuActivity extends AppCompatActivity {
                 Camera.Parameters parameters = camera.getParameters();
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 parameters.setExposureCompensation(3);
-                parameters.set("iso","800");
+                parameters.set("iso", "800");
                 camera.setParameters(parameters);
                 camera.startPreview();
                 camera.takePicture(null, null, new TakePictureCallbackYang());
@@ -153,7 +150,7 @@ public class JianCePanDuActivity extends AppCompatActivity {
                 Camera.Parameters parameters = camera.getParameters();
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 parameters.setExposureCompensation(3);
-                parameters.set("iso","800");
+                parameters.set("iso", "800");
                 camera.setParameters(parameters);
                 camera.startPreview();
                 camera.takePicture(null, null, new TakePictureCallbackYin());
@@ -170,39 +167,44 @@ public class JianCePanDuActivity extends AppCompatActivity {
                     return;
                 }
 
-    mBTService.PrintCharacters("公司名称：XXXX\r\n及访问呢" + "\r\n");
-}
-});
-        }
+                Info info = infoList.get(infoList.size() - 1);
+                mBTService.PrintCharacters("公司名称：XXXX\r\n" + "用户名称：" + info.yonghumingcheng + "\n抽样单位：" + info.chouyangdanwei);
+                mBTService.PrintCharacters("\n样品名称：" + info.yangpinmingcheng + "\n检测项目" + info.jiancexiangmu + "\n检测备注：" + info.jiancebeizhu + "\n检测结果：" + info.result+"\n\n\n");
+            }
+        });
+    }
 
     private final class TakePictureCallback implements Camera.PictureCallback {
         public void onPictureTaken(byte[] data, Camera camera) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-            bitmap = Bitmap.createBitmap(bitmap, 200, 570, 300, 100);
-            Matrix matrix=new Matrix();
+            Matrix matrix = new Matrix();
             matrix.postRotate(90);
-            bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+
+            //bitmap = Bitmap.createBitmap(bitmap, 200, 570, 300, 100);
             doBitmap(bitmap);
         }
     }
+
     private final class TakePictureCallbackYang implements Camera.PictureCallback {
-        public void onPictureTaken(byte[] data, Camera camera) {
+        public void onPictureTaken(byte[] data, Camera cam1era) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-            bitmap = Bitmap.createBitmap(bitmap, 200, 570, 300, 100);
-            Matrix matrix=new Matrix();
+            bitmap = Bitmap.createBitmap(bitmap, 300, 570, 100, 100);
+            Matrix matrix = new Matrix();
             matrix.postRotate(90);
-            bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             doBitmapYang(bitmap);
             ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);
         }
     }
+
     private final class TakePictureCallbackYin implements Camera.PictureCallback {
         public void onPictureTaken(byte[] data, Camera camera) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
             bitmap = Bitmap.createBitmap(bitmap, 200, 570, 300, 100);
-            Matrix matrix=new Matrix();
+            Matrix matrix = new Matrix();
             matrix.postRotate(90);
-            bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             doBitmapYin(bitmap);
             ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);
         }
@@ -216,6 +218,7 @@ public class JianCePanDuActivity extends AppCompatActivity {
             Toast.makeText(JianCePanDuActivity.this, "断开连接", Toast.LENGTH_SHORT).show();
         }
     }
+
     protected void doBitmapYang(Bitmap bitmap) {
         FileOutputStream fileOutputStream = null;
         String name = null;
@@ -224,10 +227,11 @@ public class JianCePanDuActivity extends AppCompatActivity {
             fileOutputStream = JianCePanDuActivity.this.openFileOutput(name, MODE_PRIVATE);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
             fileOutputStream.close();
-        }catch (Exception myexception) {
+        } catch (Exception myexception) {
             myexception.printStackTrace();
         }
     }
+
     protected void doBitmapYin(Bitmap bitmap) {
         FileOutputStream fileOutputStream = null;
         String name = null;
@@ -236,7 +240,7 @@ public class JianCePanDuActivity extends AppCompatActivity {
             fileOutputStream = JianCePanDuActivity.this.openFileOutput(name, MODE_PRIVATE);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
             fileOutputStream.close();
-        }catch (Exception myexception) {
+        } catch (Exception myexception) {
             myexception.printStackTrace();
         }
     }
@@ -260,7 +264,11 @@ public class JianCePanDuActivity extends AppCompatActivity {
         } catch (Exception myexception) {
             myexception.printStackTrace();
         }
-        ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);// 将图片显示在ImageView里
+        Bitmap bitmap_a = Bitmap.createBitmap(bitmap, 560, 370, 100, 50);
+        Bitmap bitmap_b = Bitmap.createBitmap(bitmap, 560, 420, 100, 50);
+        ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap_a);// 将图片显示在ImageView里
+
+
         Info info = new Info();
         try {
             FileInputStream inputStream = getApplicationContext().openFileInput("yangbenxinxi.txt");
@@ -268,15 +276,14 @@ public class JianCePanDuActivity extends AppCompatActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String str;
             info.img = name;
-            Double yang = BitmapCompare.similarity(getFilesDir() + "/bz_yang.jpg", getFilesDir() + "/" + name);
-            Double yin = BitmapCompare.similarity(getFilesDir() + "/bz_yin.jpg", getFilesDir() + "/" + name);
-            String line = yang.toString();
-            if (yang > yin) {
-                info.result = "yang";
+            Double res = BitmapCompare.similarity(bitmap_a, bitmap_b);
+            String line = res.toString();
+            if (res < 80) {
+                info.result = "阳性";
             } else {
-                info.result = "yin";
+                info.result = "阴性";
             }
-            Toast.makeText(getApplicationContext(), info.result+yang+"  "+yin, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), info.result + "值:" + res, Toast.LENGTH_SHORT).show();
             info.chouyangdanwei = bufferedReader.readLine();
             info.yangpinmingcheng = bufferedReader.readLine();
             info.jiancexiangmu = bufferedReader.readLine();
@@ -305,5 +312,4 @@ public class JianCePanDuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 }

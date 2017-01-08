@@ -38,6 +38,7 @@ public class BitmapCompare
     }
 
     private static void comparePixels(int[] pixels1, int[] pixels2, int length) {
+
         for (int i = 0; i < length; i++) {
             if ((pixels1[i] - pixels2[i])>=-1000&&(pixels1[i] - pixels2[i])<=1000) {
                 Count.sT++;

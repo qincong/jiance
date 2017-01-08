@@ -19,11 +19,6 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
 
-        ((TextView) findViewById(R.id.item3).findViewById(R.id.txt)).setText("样本信息");
-        ((TextView) findViewById(R.id.item2).findViewById(R.id.txt)).setText("信息查询");
-        ((TextView) findViewById(R.id.item4).findViewById(R.id.txt)).setText("图片历史");
-        ((TextView) findViewById(R.id.item5).findViewById(R.id.txt)).setText("用户信息");
-        ((TextView) findViewById(R.id.item6).findViewById(R.id.txt)).setText("关于我们");
         findViewById(R.id.item1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

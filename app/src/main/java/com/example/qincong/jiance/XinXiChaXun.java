@@ -27,18 +27,20 @@ public class XinXiChaXun extends AppCompatActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.info_list);
-        GridView gridView=(GridView)findViewById(R.id.info_grid);
+        GridView gridView = (GridView) findViewById(R.id.info_grid);
         gridView.setAdapter(new InfoAdapter(getApplicationContext()));
     }
 }
+
 class InfoAdapter extends BaseAdapter {
     private List<Info> infoList;
     Gson gson;
     Context context;
+
     public InfoAdapter(Context context) {
-        this.context=context;
-        infoList=null;
-        gson=new Gson();
+        this.context = context;
+        infoList = null;
+        gson = new Gson();
         try {
             InputStream inputStream = context.openFileInput("json.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
@@ -47,9 +49,8 @@ class InfoAdapter extends BaseAdapter {
             if (json != null) {
                 infoList = gson.fromJson(json, new TypeToken<List<Info>>() {
                 }.getType());
-            }
-            else {
-                infoList=new ArrayList<Info>();
+            } else {
+                infoList = new ArrayList<Info>();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,13 +74,29 @@ class InfoAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view= LayoutInflater.from(context).inflate(R.layout.info_layout,null);
-        TextView textView=(TextView)view.findViewById(R.id.info_text);
-        Info info=infoList.get(position);
-        String line=info.img+"  "+info.result+"  "+info.chouyangdanwei+"  "+info.yangpinmingcheng+"  "+info.jiancexiangmu
-                +"  "+info.jiancebeizhu+"  "+info.CTzhishezhi+"  "+info.jianceleixing+"  "+info.tijiaoleixing+"  "+info.yonghumingcheng
-                +"  "+info.yonghuxingbie+"  "+info.youxiangdizhi+" "+info.shouji;
-        textView.setText(line);
+        View view = null;
+        if (position != 0) {
+            view = LayoutInflater.from(context).inflate(R.layout.info_layout, null);
+            TextView textView = (TextView) view.findViewById(R.id.info_text);
+            Info info = infoList.get(position);
+            String line = info.img + "  " + info.result + "  " + info.chouyangdanwei + "  " + info.yangpinmingcheng + "  " + info.jiancexiangmu
+                    + "  " + info.jiancebeizhu + "  " + info.CTzhishezhi + "  " + info.jianceleixing + "  " + info.tijiaoleixing + "  " + info.yonghumingcheng
+                    + "  " + info.yonghuxingbie + "  " + info.youxiangdizhi + " " + info.shouji;
+            textView.setText(line);
+        } else {
+            view = LayoutInflater.from(context).inflate(R.layout.info_layout_head, null);
+            TextView textView = (TextView) view.findViewById(R.id.info_text);
+            Info info = infoList.get(position);
+            String line = info.img + "  " + info.result + "  " + info.chouyangdanwei + "  " + info.yangpinmingcheng + "  " + info.jiancexiangmu
+                    + "  " + info.jiancebeizhu + "  " + info.CTzhishezhi + "  " + info.jianceleixing + "  " + info.tijiaoleixing + "  " + info.yonghumingcheng
+                    + "  " + info.yonghuxingbie + "  " + info.youxiangdizhi + " " + info.shouji;
+            textView.setText(line);
+            textView = (TextView) view.findViewById(R.id.info_head);
+            line = info.img + "  " + info.result + "  " + info.chouyangdanwei + "  " + info.yangpinmingcheng + "  " + info.jiancexiangmu
+                    + "  " + info.jiancebeizhu + "  " + info.CTzhishezhi + "  " + info.jianceleixing + "  " + info.tijiaoleixing + "  " + info.yonghumingcheng
+                    + "  " + info.yonghuxingbie + "  " + info.youxiangdizhi + " " + info.shouji;
+            textView.setText(line);
+        }
         return view;
     }
 }
