@@ -45,6 +45,7 @@ public class UsrInformation extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                finish();
             }
         });
     }

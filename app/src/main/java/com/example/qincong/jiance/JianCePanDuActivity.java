@@ -132,30 +132,6 @@ public class JianCePanDuActivity extends AppCompatActivity {
                 camera.takePicture(null, null, new TakePictureCallback());
             }
         });
-        ((Button) findViewById(R.id.jiaozhunyangxing)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Camera.Parameters parameters = camera.getParameters();
-                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-                parameters.setExposureCompensation(3);
-                parameters.set("iso", "800");
-                camera.setParameters(parameters);
-                camera.startPreview();
-                camera.takePicture(null, null, new TakePictureCallbackYang());
-            }
-        });
-        ((Button) findViewById(R.id.jiaozhunyinxing)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Camera.Parameters parameters = camera.getParameters();
-                parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-                parameters.setExposureCompensation(3);
-                parameters.set("iso", "800");
-                camera.setParameters(parameters);
-                camera.startPreview();
-                camera.takePicture(null, null, new TakePictureCallbackYin());
-            }
-        });
         ((Button) findViewById(R.id.print)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

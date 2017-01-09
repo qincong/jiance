@@ -26,6 +26,7 @@
     <activity android:name=".JianCePanDuActivity"/>
     <activity android:name=".PhotoWall"/>
     <activity android:name=".XinXiChaXun"/>
+    <activity android:name=".AboutUs"/>
   </application>
 
 </manifest>

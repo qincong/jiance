@@ -15,32 +15,19 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_weight="1">
-        <!--<include-->
-            <!--android:id="@+id/item1"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1"/>-->
-        <ImageView
+        <include
             android:id="@+id/item1"
+            layout="@layout/start_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/jiancepandu"
-            android:paddingLeft="0dp"
             android:layout_weight="1"/>
-        <ImageView
+        <include
             android:id="@+id/item2"
+            layout="@layout/start_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/jiancejieguo"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"/>
-        <!--<include-->
-            <!--android:id="@+id/item2"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_weight="1"/>-->
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,35 +35,22 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_weight="1">
-
-        <ImageView
+        <include
             android:id="@+id/item3"
+            layout="@layout/start_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/yangbenxinxi"
+            android:layout_below="@id/item1"
             android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/item4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/tupianxinxi"
-            android:layout_weight="1"/>
-        <!--<include-->
-            <!--android:id="@+id/item3"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_below="@id/item1"-->
-            <!--android:layout_weight="1"/>-->
 
-        <!--<include-->
-            <!--android:id="@+id/item4"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_below="@id/item2"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_weight="1"/>-->
+        <include
+            android:id="@+id/item4"
+            layout="@layout/start_item"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/item2"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"/>
     </LinearLayout>
     <!--<LinearLayout-->
         <!--android:layout_width="wrap_content"-->
@@ -88,31 +62,19 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_weight="1">
-        <ImageView
+        <include
             android:id="@+id/item5"
+            layout="@layout/start_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/yonghuxinxi"
             android:layout_weight="1"/>
-        <ImageView
+        <include
             android:id="@+id/item6"
+            layout="@layout/start_item"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/guanyuwomen"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"/>
-        <!--<include-->
-            <!--android:id="@+id/item5"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1"/>-->
-        <!--<include-->
-            <!--android:id="@+id/item6"-->
-            <!--layout="@layout/start_item"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_weight="1"/>-->
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"

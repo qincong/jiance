@@ -11,8 +11,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TableRow>
-                <TextView android:text="公司"/>
-                <TextView />
+                <TextView android:text="抽检单位" android:layout_width="0dp" android:layout_weight="1"/>
+                <TextView android:text="样品名称" android:layout_width="0dp" android:layout_weight="1"/>
+                <TextView android:text="检测项目" android:layout_width="0dp" android:layout_weight="1"/>
+                <TextView android:text="结果" android:layout_width="0dp" android:layout_weight="1"/>
+                <TextView android:text="检测员"  android:layout_width="0dp" android:layout_weight="1"/>
+                <TextView android:text="删除" android:layout_width="0dp" android:layout_weight="1"/>
             </TableRow>
         </TableLayout>
     </ScrollView>

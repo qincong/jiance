@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,18 @@ public class StartActivity extends AppCompatActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
+
+        ((TextView) findViewById(R.id.item3).findViewById(R.id.txt)).setText("样本信息");
+        ((TextView) findViewById(R.id.item2).findViewById(R.id.txt)).setText("信息查询");
+        ((TextView) findViewById(R.id.item4).findViewById(R.id.txt)).setText("图片历史");
+        ((TextView) findViewById(R.id.item5).findViewById(R.id.txt)).setText("用户信息");
+        ((TextView) findViewById(R.id.item6).findViewById(R.id.txt)).setText("关于我们");
+        ((ImageView) findViewById(R.id.item1).findViewById(R.id.img)).setImageResource(R.drawable.one);
+        ((ImageView) findViewById(R.id.item2).findViewById(R.id.img)).setImageResource(R.drawable.two);
+        ((ImageView) findViewById(R.id.item3).findViewById(R.id.img)).setImageResource(R.drawable.three);
+        ((ImageView) findViewById(R.id.item4).findViewById(R.id.img)).setImageResource(R.drawable.four);
+        ((ImageView) findViewById(R.id.item5).findViewById(R.id.img)).setImageResource(R.drawable.five);
+        ((ImageView) findViewById(R.id.item6).findViewById(R.id.img)).setImageResource(R.drawable.six);
 
         findViewById(R.id.item1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +64,13 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartActivity.this, UsrInformation.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.item6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StartActivity.this, AboutUs.class);
                 startActivity(intent);
             }
         });
