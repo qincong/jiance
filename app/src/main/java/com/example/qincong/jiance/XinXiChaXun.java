@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -23,12 +25,36 @@ import java.util.List;
  * Created by qincong on 2016/12/11.
  */
 public class XinXiChaXun extends AppCompatActivity {
+    private List<Info> infoList;
+    Gson gson;
+    Context context;
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.info_list);
-        GridView gridView = (GridView) findViewById(R.id.info_grid);
-        gridView.setAdapter(new InfoAdapter(getApplicationContext()));
+        infoList = null;
+        gson = new Gson();
+        try {
+            InputStream inputStream = context.openFileInput("json.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String json = bufferedReader.readLine();
+            if (json != null) {
+                infoList = gson.fromJson(json, new TypeToken<List<Info>>() {
+                }.getType());
+            } else {
+                infoList = new ArrayList<Info>();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
+        for (Info info : infoList) {
+            TableRow tableRow = new TableRow(getApplicationContext());
+            tableLayout.addView(tableRow);
+        }
     }
 }
 

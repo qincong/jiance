@@ -2,10 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <GridView
-        android:id="@+id/info_grid"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="1">
-    </GridView>
+        android:layout_height="wrap_content">
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableRow>
+                <TextView android:text="公司"/>
+                <TextView />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 </LinearLayout>
