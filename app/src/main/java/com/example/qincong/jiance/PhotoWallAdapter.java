@@ -11,32 +11,44 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by qincong on 2016/12/11.
- */
 public class PhotoWallAdapter extends BaseAdapter {
     List<String> stringList=new ArrayList<String>();
     Context context;
+    private List<Info> infoList = null;
+    InputStream inputStream=null;
+    Gson gson=new Gson();
     public PhotoWallAdapter(Context context) {
         try {
             this.context=context;
-            FileInputStream fileInputStream=context.openFileInput("img.txt");
-            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream,"utf-8");
-            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-            String line;
-            while((line=bufferedReader.readLine())!=null) {
-                stringList.add(line);
+            inputStream = context.openFileInput("json.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String json = bufferedReader.readLine();
+            if (json != null) {
+                infoList = gson.fromJson(json, new TypeToken<List<Info>>() {
+                }.getType());
+                if (infoList == null) {
+                    infoList = new ArrayList<Info>();
+                }
+            } else {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        for(Info info:infoList) {
+            stringList.add(info.img);
         }
     }
 
